@@ -1,0 +1,2 @@
+cd ..
+RD /s reports
