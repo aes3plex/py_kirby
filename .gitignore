@@ -6,3 +6,5 @@
 /.pytest_cache/
 /allure-2.7.0/
 needed.txt
+*__pycache__*
+*__init__*

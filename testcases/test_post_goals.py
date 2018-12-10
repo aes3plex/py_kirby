@@ -1,16 +1,16 @@
 import pytest
 from allure import title, description, story, severity
 from base import *
-from executors.api import users
+from executors.api import goals
 
 
-@title("Creating user")
-@description("Post method testing")
+@title("Add a new goal")
+@description("Method for adding new goal")
 @severity('Critical')
-@story('POOOST')
+@story('HuaHana')
 def test_run():
-    with step("Now we posting"):
-        t = users.run()
+    with step("Base checks"):
+        t = goals.run()
         base_assert(t)
         with step("Request data"):
             base_attachments(t)

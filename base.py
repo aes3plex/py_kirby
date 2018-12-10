@@ -20,22 +20,18 @@ def dict_add(*args):
 
 # base checks
 def base_assert(_request):
-    with step("Проверка Status Code на 201"):
-        assert _request.status_code == 201
-    # with step("Проверка Response Message на OK"):
-    #     assert _request.reason == 'OK'
-    with step("Проверка Response Body на отсутсвие Errors"):
-        if 'Errors' not in _request.text:
-            assert True
-        else:
-            assert len(json.loads(_request.text)['Errors']) == 0
+    with step("Check status code for 200"):
+        assert (_request.status_code == 200)
+    with step("Check response message for OK"):
+        assert _request.reason == 'OK'
 
 
 # request and response logging
 def base_attachments(_request):
     attach(_request.url, 'request url')
     attach(str(_request.request.headers), 'request headers')
-    attach(_request.request.body, 'request body')
+    if 'body' in _request.__dict__:
+        attach(_request.request.body, 'request body')
     attach(_request.text, 'response body')
 
 
@@ -50,5 +46,4 @@ def execute(type, url, data='', headers=content_type_header_json):
     if type == 'get':
         return requests.get(url)
     if type == 'post':
-        # header = dict_add(base_headers, headers)
-        return requests.post(url, data=json.dumps(data))
+        return requests.post(url, headers=headers,  data=json.dumps(data))
