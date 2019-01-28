@@ -1,10 +1,10 @@
 /venv/
 /.idea/
 /__pycache__/
-/reports/
-/HTML_reports/
+/Reports/
+*HTML_reports*
 /.pytest_cache/
-/allure-2.7.0/
+*allure-2.7.0*
 needed.txt
 *__pycache__*
 *__init__*
