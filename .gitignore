@@ -1,7 +1,6 @@
 /venv/
 /.idea/
-/__pycache__/
-/Reports/
+*Reports*
 *HTML_reports*
 /.pytest_cache/
 *allure-2.7.0*
