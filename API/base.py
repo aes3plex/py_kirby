@@ -1,5 +1,5 @@
 from allure import step, attach
-from config import *
+from API.config import *
 import requests
 import json
 

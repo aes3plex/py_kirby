@@ -1,7 +1,7 @@
 import pytest
 from allure import title, description, story, severity
-from base import *
-from Executors.api import post_users
+from API.base import *
+from API.Executors.api import post_users
 
 
 @title("post_users")

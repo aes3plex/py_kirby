@@ -1,7 +1,7 @@
 import pytest
 from allure import title, description, story, severity
-from base import *
-from Executors.api.users import get_2
+from API.base import *
+from API.Executors.api.users import get_2
 
 
 @title("get_2")

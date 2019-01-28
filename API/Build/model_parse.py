@@ -23,14 +23,14 @@ def create_exec_tree(path, method_type, data):
 def create_exec(file, method_type, data):
 	if 'get' in method_type:
 		file.write(
-			'from base import *' + '\n' + '\n' + '\n'
+			'from API.base import *' + '\n' + '\n' + '\n'
 			+ 'def run():' + '\n'
-			+ '\t' + 'return execute(' + str(method_type) + ', get_url(__file__))' + '\n'
+			+ '\t' + 'return execute(' + '\'' + method_type + '\'' + ', get_url(__file__))' + '\n'
 			)
 
 	elif 'post' in method_type:
 		file.write(
-			'from base import *' + '\n' + '\n' + '\n'
+			'from API.base import *' + '\n' + '\n' + '\n'
 			+ 'def run():' + '\n'
 			+ '\t' + 'data = ' + str(data) + '\n'
 			+ '\t' + 'return execute(' + '\'' + method_type + '\'' + ', get_url(__file__), data)' + '\n'
@@ -54,8 +54,8 @@ def create_testcase(path, method_type, description):
 	case.write(
 		'import pytest' + '\n'
 		+ 'from allure import title, description, story, severity' + '\n'
-		+ 'from base import *' + '\n'
-		+ 'from Executors' + import_path + ' import ' + executor_name + '\n' + '\n' + '\n'
+		+ 'from API.base import *' + '\n'
+		+ 'from API.Executors' + import_path + ' import ' + executor_name + '\n' + '\n' + '\n'
 		+ '@title("' + executor_name + '")' + '\n'
 		+ '@description("' + description + '")' + '\n'
 		+ '@severity(\'Critical\')' + '\n'

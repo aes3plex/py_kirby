@@ -1,9 +1,24 @@
 from model_parse import *
+import glob 
 
-print('Enter the model\'s name: ')
-model_name = input()
-if model_name:
-	model = open(model_name + '.json', 'r')
+models_dir = "Models/"
+model_list = dict()
+os.chdir('../' + models_dir)
+counter = 0
+for file in glob.glob("*.json"):
+    counter += 1
+    model_list.update({str(counter) : file})
+os.chdir('..')
+
+print('You have such model_list as:' + '\n')
+for key in model_list:
+	print(key + '. ' + model_list[key])
+
+print('\n' + 'Choose model\'s number: ')
+model_num = input()
+print('\n')
+if model_num in model_list.keys():
+	model = open(models_dir + model_list[model_num], 'r')
 	config = open('config.py', 'w')
 	mdata = json.loads(model.read())
 	api_methods = mdata['methods']
@@ -22,4 +37,4 @@ if model_name:
 	model.close()
 
 else:
-	print('Empty model\'s name')
+	print('\n' + 'Model not in list')
