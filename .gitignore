@@ -2,8 +2,12 @@
 /.idea/
 *Reports*
 *HTML_reports*
+*Executors*
+*Testcases*
 /.pytest_cache/
 *allure-2.7.0*
 needed.txt
+config.py
+load.py
 *__pycache__*
-*__init__*
+__init__
